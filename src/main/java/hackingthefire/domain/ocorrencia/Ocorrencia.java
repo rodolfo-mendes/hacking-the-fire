@@ -1,9 +1,15 @@
 package hackingthefire.domain.ocorrencia;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.io.Serializable;
 
+@Document(collection = "ocorrencias")
 public class Ocorrencia implements Serializable{
+    @Id
     private String id;
+
     private String telefone;
     private String nomeSolicitante;
     private String municipio;
@@ -18,6 +24,7 @@ public class Ocorrencia implements Serializable{
     private String queixaPaciente;
     private String observacoes;
     private Boolean emergenciaMedica;
+    private String status;
 
     public Ocorrencia() {
     }
@@ -144,6 +151,14 @@ public class Ocorrencia implements Serializable{
 
     public void setEmergenciaMedica(Boolean emergenciaMedica) {
         this.emergenciaMedica = emergenciaMedica;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
