@@ -1,6 +1,6 @@
 package hackingthefire.controllers;
 
-import hackingthefire.domain.ocorrencia.Recurso;
+import hackingthefire.domain.Recurso;
 import hackingthefire.persistence.RecursoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/recursos")
+@RequestMapping("/api/recursos")
 public class RecursoController {
     @Autowired
     private RecursoRepository recursoRepository;

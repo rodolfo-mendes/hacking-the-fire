@@ -1,6 +1,6 @@
 package hackingthefire.controllers;
 
-import hackingthefire.domain.ocorrencia.Ocorrencia;
+import hackingthefire.domain.Ocorrencia;
 import hackingthefire.persistence.OcorrenciaRepository;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.Objects;
 
 @RestController
-@RequestMapping("/ocorrencias")
+@RequestMapping("/api/ocorrencias")
 public class OcorrenciaController {
     @Autowired
     private OcorrenciaRepository ocorrenciaRepository;

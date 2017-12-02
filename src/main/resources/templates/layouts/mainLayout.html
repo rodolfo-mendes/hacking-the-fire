@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head :: head ('Ocorrências')">
+</head>
+
+<body>
+
+<!-- START NAV -->
+<nav th:replace="fragments/nav :: nav" >
+</nav>
+<!-- END NAV -->
+
+<div class="container">
+    <div class="columns">
+        <div class="column is-3" th:insert="fragments/asideMenu :: asideMenu">
+        </div>
+        <div class="column is-9">
+        </div>
+    </div>
+</div>
+
+<script async type="text/javascript" src="/js/bulma.js"></script>
+
+</body>
+</html>

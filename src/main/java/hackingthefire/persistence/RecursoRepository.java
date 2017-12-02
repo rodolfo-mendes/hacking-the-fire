@@ -1,6 +1,6 @@
 package hackingthefire.persistence;
 
-import hackingthefire.domain.ocorrencia.Recurso;
+import hackingthefire.domain.Recurso;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

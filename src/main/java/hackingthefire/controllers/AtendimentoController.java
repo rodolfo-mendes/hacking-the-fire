@@ -1,6 +1,6 @@
 package hackingthefire.controllers;
 
-import hackingthefire.domain.ocorrencia.Atendimento;
+import hackingthefire.domain.Atendimento;
 import hackingthefire.persistence.AtendimentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/atendimentos")
+@RequestMapping("/api/atendimentos")
 public class AtendimentoController {
     @Autowired
     private AtendimentoRepository atendimentoRepository;
