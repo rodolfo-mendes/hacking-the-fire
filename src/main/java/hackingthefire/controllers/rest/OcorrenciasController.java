@@ -21,12 +21,18 @@ public class OcorrenciasController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    public String ocorrencia(@ModelAttribute("ocorrencia") Ocorrencia ocorrencia){
+    public String ocorrencia(
+            @ModelAttribute("ocorrencia") Ocorrencia ocorrencia,
+            Model model){
+
         ocorrencia.setMunicipio("Uberlândia");
         ocorrencia.setUf("MG");
         ocorrencia.setStatus("nao-atendido");
 
         ocorrenciaRepository.save(ocorrencia);
+
+        model.addAttribute("ocorrencia", new Ocorrencia());
+        model.addAttribute("message", "Ocorrência registrada com sucesso!");
 
         return "form-ocorrencia";
     }

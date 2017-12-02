@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -17,7 +18,7 @@ public class AtendimentoController {
     private AtendimentoRepository atendimentoRepository;
 
     @GetMapping
-    public Atendimento find(
+    public List<Atendimento> find(
             @RequestParam(value = "recurso", required = false) String recurso){
         Atendimento atendimento = new Atendimento();
 
@@ -30,7 +31,7 @@ public class AtendimentoController {
         atendimento.setLatitude(BigDecimal.valueOf(-40.00));
         atendimento.setLatitude(BigDecimal.valueOf(-20.00));
 
-        return atendimento;
+        return Arrays.asList(atendimento);
     }
 
     @PostMapping

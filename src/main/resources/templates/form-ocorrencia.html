@@ -19,11 +19,9 @@
             </aside>
         </div>
         <div class="column is-9">
-            <div class="notification is-success">
-                <button class="delete"></button>
-                Primar lorem ipsum dolor sit amet, consectetur
-                adipiscing elit lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Sit amet,
-                consectetur adipiscing elit
+            <div class="notification is-success" th:if="${message}" role="alert">
+                <button class="delete" data-dismiss="alert"></button>
+                <span th:text="${message}"></span>
             </div>
 
             <form th:action="@{/ocorrencias}" th:object="${ocorrencia}" method="post">
@@ -124,6 +122,7 @@
 </div>
 
 
+<script async type="text/javascript" src="/js/jquery.min.js"></script>
 <script async type="text/javascript" src="/js/bulma.js"></script>
 
 </body>

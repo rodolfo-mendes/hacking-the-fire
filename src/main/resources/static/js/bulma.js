@@ -3,8 +3,19 @@
 (function() {
     var burger = document.querySelector('.navbar-burger');
     var menu = document.querySelector('.navbar-menu');
-    burger.addEventListener('click', function() {
-        burger.classList.toggle('is-active');
-        menu.classList.toggle('is-active');
-    });
+    if(burger && menu){
+        burger.addEventListener('click', function() {
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    }
+
+    var btnDelete = document.querySelector('.notification > button.delete');
+    if(btnDelete){
+        btnDelete.addEventListener('click', function(){
+            $(this).parent().addClass('is-hidden');
+            return false;
+        });
+    }
 })();
+
