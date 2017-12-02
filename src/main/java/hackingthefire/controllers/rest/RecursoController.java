@@ -1,4 +1,4 @@
-package hackingthefire.controllers;
+package hackingthefire.controllers.rest;
 
 import hackingthefire.domain.Recurso;
 import hackingthefire.persistence.RecursoRepository;

@@ -1,0 +1,10 @@
+<div
+    xmlns:th="http://www.thymeleaf.org"
+    th:fragment="textInput (label, name = '')"
+    class="field"
+>
+    <label class="label" th:text="${label}">Label</label>
+    <div class="control">
+        <input class="input" type="text" th:name="${name}">
+    </div>
+</div>

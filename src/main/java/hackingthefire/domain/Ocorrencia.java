@@ -23,7 +23,7 @@ public class Ocorrencia implements Serializable{
     private Integer idade;
     private String queixaPaciente;
     private String observacoes;
-    private Boolean emergenciaMedica;
+    private String emergenciaMedica;
     private String status;
 
     public Ocorrencia() {
@@ -145,11 +145,11 @@ public class Ocorrencia implements Serializable{
         this.observacoes = observacoes;
     }
 
-    public Boolean getEmergenciaMedica() {
+    public String getEmergenciaMedica() {
         return emergenciaMedica;
     }
 
-    public void setEmergenciaMedica(Boolean emergenciaMedica) {
+    public void setEmergenciaMedica(String emergenciaMedica) {
         this.emergenciaMedica = emergenciaMedica;
     }
 

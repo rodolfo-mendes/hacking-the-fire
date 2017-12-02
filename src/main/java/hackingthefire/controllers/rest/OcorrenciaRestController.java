@@ -1,4 +1,4 @@
-package hackingthefire.controllers;
+package hackingthefire.controllers.rest;
 
 import hackingthefire.domain.Ocorrencia;
 import hackingthefire.persistence.OcorrenciaRepository;
@@ -14,7 +14,7 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("/api/ocorrencias")
-public class OcorrenciaController {
+public class OcorrenciaRestController {
     @Autowired
     private OcorrenciaRepository ocorrenciaRepository;
 

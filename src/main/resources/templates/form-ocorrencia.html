@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head :: head ('Ocorrências')">
+</head>
+
+<body>
+
+<!-- START NAV -->
+<nav th:replace="fragments/nav :: nav" >
+</nav>
+<!-- END NAV -->
+
+<div class="container">
+    <div class="columns">
+        <div class="column is-3">
+            <aside th:replace="fragments/asideMenu :: asideMenu">
+            </aside>
+        </div>
+        <div class="column is-9">
+            <div class="notification is-success">
+                <button class="delete"></button>
+                Primar lorem ipsum dolor sit amet, consectetur
+                adipiscing elit lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Sit amet,
+                consectetur adipiscing elit
+            </div>
+
+            <form th:action="@{/ocorrencias}" th:object="${ocorrencia}" method="post">
+                <div class="columns">
+                    <div class="column">
+                        <div class="field">
+                            <label class="label" for="telefone">Telefone</label>
+                            <div class="control">
+                                <input id="telefone" class="input" type="text" th:field="*{telefone}">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label" for="nomeSolicitante">Solicitante</label>
+                            <div class="control">
+                                <input id="nomeSolicitante" class="input" type="text" th:field="*{nomeSolicitante}">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label" for="endereco">Endereço</label>
+                            <div class="control">
+                                <input id="endereco" class="input" type="text" th:field="*{endereco}">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label" for="numero">Número</label>
+                            <div class="control">
+                                <input id="numero" class="input" type="text" th:field="*{numero}">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label" for="bairro">Bairro</label>
+                            <div class="control">
+                                <input id="bairro" class="input" type="text" th:field="*{bairro}">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label" for="referencia">Referência</label>
+                            <div class="control">
+                                <input id="referencia" class="input" type="text" th:field="*{referencia}">
+                            </div>
+                        </div>
+
+
+                        <input type="submit" class="button is-primary" value="Salvar" >
+                    </div>
+                    <div class="column">
+                        <div class="field">
+                            <label class="label" for="nomePaciente">Paciente</label>
+                            <div class="control">
+                                <input id="nomePaciente" class="input" type="text" th:field="*{nomePaciente}">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label" for="referencia">Sexo</label>
+                            <div class="control">
+                                <input id="sexo" class="input" type="text" th:field="*{sexo}">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label" for="idade">Idade</label>
+                            <div class="control">
+                                <input id="idade" class="input" type="text" th:field="*{idade}">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label" for="queixaPaciente">Queixa do Paciente</label>
+                            <div class="control">
+                                <input id="queixaPaciente" class="input" type="text" th:field="*{queixaPaciente}">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label" for="emergenciaMedica">Emergência médica</label>
+                            <div class="control">
+                                <input id="emergenciaMedica" class="input" type="text" th:field="*{emergenciaMedica}">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label" for="observacoes">Observações</label>
+                            <div class="control">
+                                <input id="observacoes" class="input" type="text" th:field="*{observacoes}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script async type="text/javascript" src="/js/bulma.js"></script>
+
+</body>
+</html>
