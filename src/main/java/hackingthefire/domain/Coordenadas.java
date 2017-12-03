@@ -4,15 +4,16 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 public class Coordenadas implements Serializable{
+    private String nomePaciente;
     private BigDecimal latitude;
-    private BigDecimal lagitude;
+    private BigDecimal longitude;
 
     public Coordenadas() {
     }
 
-    public Coordenadas(BigDecimal latitude, BigDecimal lagitude) {
+    public Coordenadas(BigDecimal latitude, BigDecimal longitude) {
         this.latitude = latitude;
-        this.lagitude = lagitude;
+        this.longitude = longitude;
     }
 
     public BigDecimal getLatitude() {
@@ -23,11 +24,19 @@ public class Coordenadas implements Serializable{
         this.latitude = latitude;
     }
 
-    public BigDecimal getLagitude() {
-        return lagitude;
+    public BigDecimal getLongitude() {
+        return longitude;
     }
 
-    public void setLagitude(BigDecimal lagitude) {
-        this.lagitude = lagitude;
+    public void setLongitude(BigDecimal longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getNomePaciente() {
+        return nomePaciente;
+    }
+
+    public void setNomePaciente(String nomePaciente) {
+        this.nomePaciente = nomePaciente;
     }
 }

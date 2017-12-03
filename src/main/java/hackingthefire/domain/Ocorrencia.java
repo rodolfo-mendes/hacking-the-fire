@@ -1,5 +1,6 @@
 package hackingthefire.domain;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -10,14 +11,27 @@ public class Ocorrencia implements Serializable{
     @Id
     private String id;
 
+    @NotBlank(message = "Telefone é obrigatório.")
     private String telefone;
+
+    @NotBlank(message = "Solicitante é obrigatório.")
     private String nomeSolicitante;
-    private String municipio;
+
     private String uf;
+    private String municipio;
+
+    @NotBlank(message = "Endereço é obrigatório.")
     private String endereco;
+
+    @NotBlank(message = "Número é obrigatório.")
     private String numero;
+
+    private String tipoOcorrencia;
+
     private String bairro;
     private String referencia;
+
+    @NotBlank(message = "Nome do paciente é obrigatório.")
     private String nomePaciente;
     private String sexo;
     private Integer idade;
@@ -25,6 +39,7 @@ public class Ocorrencia implements Serializable{
     private String observacoes;
     private String emergenciaMedica;
     private String status;
+
 
     public Ocorrencia() {
     }
@@ -159,6 +174,14 @@ public class Ocorrencia implements Serializable{
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getTipoOcorrencia() {
+        return tipoOcorrencia;
+    }
+
+    public void setTipoOcorrencia(String tipoOcorrencia) {
+        this.tipoOcorrencia = tipoOcorrencia;
     }
 
     @Override

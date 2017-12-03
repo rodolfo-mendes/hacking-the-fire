@@ -31,7 +31,17 @@ public class AtendimentoController {
         atendimento.setLatitude(BigDecimal.valueOf(-40.00));
         atendimento.setLatitude(BigDecimal.valueOf(-20.00));
 
-        return Arrays.asList(atendimento);
+        Atendimento atendimento2 = new Atendimento();
+        atendimento2.setNome("José Peixoto");
+        atendimento2.setSexo("masculino");
+        atendimento2.setIdade(40);
+        atendimento2.setEndereco("Av. Floriano Peixoto");
+        atendimento2.setNumero("1500");
+        atendimento2.setBairro("Centro");
+        atendimento2.setLatitude(BigDecimal.valueOf(-40.01));
+        atendimento2.setLatitude(BigDecimal.valueOf(-20.02));
+
+        return Arrays.asList(atendimento, atendimento2);
     }
 
     @PostMapping

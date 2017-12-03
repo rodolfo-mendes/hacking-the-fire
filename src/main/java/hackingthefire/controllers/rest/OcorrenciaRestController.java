@@ -1,13 +1,18 @@
 package hackingthefire.controllers.rest;
 
+import hackingthefire.domain.Coordenadas;
 import hackingthefire.domain.Ocorrencia;
+import hackingthefire.domain.Recurso;
 import hackingthefire.persistence.OcorrenciaRepository;
+import hackingthefire.persistence.RecursoRepository;
+import hackingthefire.service.GeolocationService;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -17,6 +22,12 @@ import java.util.Objects;
 public class OcorrenciaRestController {
     @Autowired
     private OcorrenciaRepository ocorrenciaRepository;
+
+    @Autowired
+    private RecursoRepository recursoRepository;
+
+    @Autowired
+    private GeolocationService geolocationService;
 
     @GetMapping
     public List<Ocorrencia> findAll(
@@ -65,5 +76,28 @@ public class OcorrenciaRestController {
         ocorrencia.setStatus("nao-atendido");
         ocorrenciaRepository.save(ocorrencia);
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
+    }
+
+    @GetMapping("/{id}/coordenadas")
+    public Map<String,Object> getCoordenadas(@PathVariable("id") String id){
+        Ocorrencia ocorrencia = ocorrenciaRepository.findById(id);
+
+        if(ocorrencia == null){
+            throw new RuntimeException("ocorrência não encontrada: " + id);
+        }
+
+        Coordenadas coordenadas = geolocationService.findCoordenadasByEndereco(
+                ocorrencia.getEndereco(),
+                ocorrencia.getNumero(),
+                ocorrencia.getBairro(),
+                ocorrencia.getMunicipio(),
+                ocorrencia.getUf()
+        );
+
+        Map<String,Object> result = new HashMap<>();
+        result.put("ocorrencia", ocorrencia);
+        result.put("coordenadas", coordenadas);
+
+        return result;
     }
 }

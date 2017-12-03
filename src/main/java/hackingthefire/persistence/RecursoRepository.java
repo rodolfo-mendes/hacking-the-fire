@@ -6,5 +6,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 
 public interface RecursoRepository extends MongoRepository<Recurso, String>{
-    public List<Recurso> findByTipo(String tipo);
+    List<Recurso> findByTipo(String tipo);
+
+    List<Recurso> findByTipoAndStatus(String tipo , String status);
 }

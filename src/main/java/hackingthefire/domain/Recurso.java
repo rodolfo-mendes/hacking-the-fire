@@ -4,15 +4,25 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 @Document(collection = "recursos")
 public class Recurso implements Serializable{
     @Id
     private String id;
+    private String descricao;
     private String tipo;
     private String status;
-    private Long latitude;
-    private Long longitude;
+    private BigDecimal latitude;
+    private BigDecimal longitude;
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 
     public String getId() {
         return id;
@@ -38,19 +48,19 @@ public class Recurso implements Serializable{
         this.status = status;
     }
 
-    public Long getLatitude() {
+    public BigDecimal getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(Long latitude) {
+    public void setLatitude(BigDecimal latitude) {
         this.latitude = latitude;
     }
 
-    public Long getLongitude() {
+    public BigDecimal getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(Long longitude) {
+    public void setLongitude(BigDecimal longitude) {
         this.longitude = longitude;
     }
 

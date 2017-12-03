@@ -22,11 +22,11 @@ public class GoogleGeolocationService implements GeolocationService{
                 endereco,
                 municipio,
                 uf,
-                "Brazil"
+                "Brasil"
         );
 
         String url = "https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={apiKey}";
-        String apiKey = "AIzaSyCrWIz2HFJ0I7tP6lEgBrqi4si2CO7yWSs";
+        String apiKey = "AIzaSyCjSMzf5f9iV8keaXuGAVoGXbcNKvfDbcw";
 
         GoogleGeolocationResponse response = restTemplate
                 .getForObject(url, GoogleGeolocationResponse.class, enderecoCompleto, apiKey);

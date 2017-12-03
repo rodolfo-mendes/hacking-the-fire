@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/ocorrencias")
@@ -14,7 +17,7 @@ public class OcorrenciasController {
     @Autowired
     private OcorrenciaRepository ocorrenciaRepository;
 
-    @GetMapping("/nova")
+    @GetMapping
     public String nova(Model model){
         model.addAttribute("ocorrencia", new Ocorrencia());
         return "form-ocorrencia";
@@ -22,8 +25,15 @@ public class OcorrenciasController {
 
     @PostMapping(consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public String ocorrencia(
-            @ModelAttribute("ocorrencia") Ocorrencia ocorrencia,
+            @ModelAttribute("ocorrencia")
+            @Valid
+            Ocorrencia ocorrencia,
+            BindingResult bindingResult,
             Model model){
+
+        if(bindingResult.hasErrors()){
+            return "form-ocorrencia";
+        }
 
         ocorrencia.setMunicipio("Uberlândia");
         ocorrencia.setUf("MG");
