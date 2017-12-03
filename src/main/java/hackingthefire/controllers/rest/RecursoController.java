@@ -34,23 +34,28 @@ public class RecursoController {
         //-18.9442608
         //-48.2970356
 
+        /*
         Recurso recurso1 = new Recurso();
+        recurso1.setId("1");
         recurso1.setDescricao("carro-resgate-01");
         recurso1.setLatitude(BigDecimal.valueOf(-18.9452608));
         recurso1.setLongitude(BigDecimal.valueOf(-48.2870356));
 
         Recurso recurso2 = new Recurso();
+        recurso2.setId("2");
         recurso2.setDescricao("ambulancia-01");
         recurso2.setLatitude(BigDecimal.valueOf(-18.9422608));
         recurso2.setLongitude(BigDecimal.valueOf(-48.2670356));
 
         Recurso recurso3 = new Recurso();
+        recurso3.setId("3");
         recurso3.setDescricao("ambulancia-02");
         recurso3.setLatitude(BigDecimal.valueOf(-18.9420608));
         recurso3.setLongitude(BigDecimal.valueOf(-48.2650356));
 
         return Arrays.asList(recurso1, recurso2, recurso3);
+        */
 
-        //return recursoRepository.findAl(Example.of(recursoComTipoStatus));
+        return recursoRepository.findAll(Example.of(recursoComTipoStatus));
     }
 }

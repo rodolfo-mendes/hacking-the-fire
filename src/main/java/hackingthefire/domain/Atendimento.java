@@ -23,7 +23,10 @@ public class Atendimento {
     private BigDecimal latitude;
     private BigDecimal longitude;
 
-    private String recurso;
+    private String idRecurso;
+    private String descricaoRecurso;
+
+    private String idOcorrencia;
 
     public String getId() {
         return id;
@@ -105,11 +108,27 @@ public class Atendimento {
         this.longitude = longitude;
     }
 
-    public String getRecurso() {
-        return recurso;
+    public String getIdRecurso() {
+        return idRecurso;
     }
 
-    public void setRecurso(String recurso) {
-        this.recurso = recurso;
+    public void setIdRecurso(String idRecurso) {
+        this.idRecurso = idRecurso;
+    }
+
+    public String getDescricaoRecurso() {
+        return descricaoRecurso;
+    }
+
+    public void setDescricaoRecurso(String descricaoRecurso) {
+        this.descricaoRecurso = descricaoRecurso;
+    }
+
+    public String getIdOcorrencia() {
+        return idOcorrencia;
+    }
+
+    public void setIdOcorrencia(String idOcorrencia) {
+        this.idOcorrencia = idOcorrencia;
     }
 }

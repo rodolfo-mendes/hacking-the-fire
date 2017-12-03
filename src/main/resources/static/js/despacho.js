@@ -10,17 +10,18 @@ $(function(){
     this.mostrarNoMapa = function(source){
         map.removeMarkers();
 
-        var id = $(source).attr('data-id');
+        var idOcorrencia = $(source).attr('data-id');
         var tipoOcorrencia = $(source).attr('data-tipo');
 
-        $.get('http://localhost:8080/api/ocorrencias/' + id + '/coordenadas',
+        $.get('http://localhost:8080/api/ocorrencias/' + idOcorrencia + '/coordenadas',
             function(data){
                 console.log(data);
 
                 var infoContent =
-                    "<div class='box notification is-danger'>" +
+                    "<div class='box notification is-success'>" +
                         "<h2>" + data['ocorrencia']['nomePaciente'] + "</h2>" +
-                        data['ocorrencia']['sexo'] + ", " + data['ocorrencia']['idade'] + " anos"
+                        data['ocorrencia']['sexo'] + ", " + data['ocorrencia']['idade'] + " anos<br>" +
+                        data['ocorrencia']['observacoes']
                     "</div>";
 
                 map.addMarker({
@@ -40,13 +41,37 @@ $(function(){
             {tipo: tipoOcorrencia, status: 'em-espera'},
             function(data){
                 console.log(data);
+
                 for(var i = 0 ; i < data.length ; i++){
+                    var infoContent =
+                        "<div class='box notification is-danger'>" +
+                            "<h2>" + data[i]['descricao'] + "</h2>" +
+                            "<button class='button is-danger is-inverted' " +
+                                "onclick=\"despacharRecurso('" + idOcorrencia + "', '" + data[i]['id'] + "')\">" +
+                                "Despachar" +
+                            "</button>"
+                        "</div>";
+
                     map.addMarker({
                         icon: '/img/ambulance.png',
                         lat: data[i]['latitude'],
-                        lng: data[i]['longitude']
+                        lng: data[i]['longitude'],
+                        infoWindow: {
+                            content: infoContent
+                        }
                     });
                 }
+            }
+        );
+    }
+
+    this.despacharRecurso = function(idOcorrencia, idRecurso){
+        $.post(
+            'http://localhost:8080/api/atendimentos/',
+            {ocorrencia: idOcorrencia, recurso: idRecurso},
+            function(data){
+                alert('O recurso ' + data['descricaoRecurso'] +
+                    ' foi despachado para atender ' + data['nomePaciente']);
             }
         );
     }

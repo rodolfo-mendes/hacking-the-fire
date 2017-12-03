@@ -9,4 +9,6 @@ public interface RecursoRepository extends MongoRepository<Recurso, String>{
     List<Recurso> findByTipo(String tipo);
 
     List<Recurso> findByTipoAndStatus(String tipo , String status);
+
+    Recurso findById(String idRecurso);
 }

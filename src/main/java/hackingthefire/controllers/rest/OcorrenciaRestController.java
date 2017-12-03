@@ -94,6 +94,10 @@ public class OcorrenciaRestController {
                 ocorrencia.getUf()
         );
 
+        ocorrencia.setLatitude(coordenadas.getLatitude());
+        ocorrencia.setLongitude(coordenadas.getLongitude());
+        ocorrenciaRepository.save(ocorrencia);
+
         Map<String,Object> result = new HashMap<>();
         result.put("ocorrencia", ocorrencia);
         result.put("coordenadas", coordenadas);

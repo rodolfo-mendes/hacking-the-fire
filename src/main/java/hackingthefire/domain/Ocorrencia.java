@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 @Document(collection = "ocorrencias")
 public class Ocorrencia implements Serializable{
@@ -40,6 +41,8 @@ public class Ocorrencia implements Serializable{
     private String emergenciaMedica;
     private String status;
 
+    private BigDecimal latitude;
+    private BigDecimal longitude;
 
     public Ocorrencia() {
     }
@@ -182,6 +185,22 @@ public class Ocorrencia implements Serializable{
 
     public void setTipoOcorrencia(String tipoOcorrencia) {
         this.tipoOcorrencia = tipoOcorrencia;
+    }
+
+    public BigDecimal getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(BigDecimal latitude) {
+        this.latitude = latitude;
+    }
+
+    public BigDecimal getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(BigDecimal longitude) {
+        this.longitude = longitude;
     }
 
     @Override
